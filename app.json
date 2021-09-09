@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "credenc-app",
+    "slug": "credenc-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "credenc-app"
+}
