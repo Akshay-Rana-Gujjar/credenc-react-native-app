@@ -23,6 +23,11 @@ function CreateContact({
   if (contactCreated) {
     alert(`Contact ${userData ? "updated":"created"} successfully!`);
     resetCreateContact();
+    if(!userData){
+      setTimeout(() => {
+        setUserInputData({ address: {} })
+      }, 1000);
+    }
   }
 
   return (
@@ -59,7 +64,7 @@ function CreateContact({
           placeholder="Suite"
           value={userInputData.address.suite}
           onChangeText={(text) => {
-            setUserInputData((prevVal) => ({ ...prevVal, address: text }));
+            setUserInputData((prevVal) => ({ ...prevVal, address: {...prevVal.address, suite: text} }));
           }}
         />
         <TextInput
@@ -67,7 +72,7 @@ function CreateContact({
           placeholder="Street"
           value={userInputData.address.street}
           onChangeText={(text) => {
-            setUserInputData((prevVal) => ({ ...prevVal, address: text }));
+            setUserInputData((prevVal) => ({ ...prevVal, address: {...prevVal.address, street: text} }));
           }}
         />
         <TextInput
@@ -75,7 +80,7 @@ function CreateContact({
           placeholder="City"
           value={userInputData.address.city}
           onChangeText={(text) => {
-            setUserInputData((prevVal) => ({ ...prevVal, address: text }));
+            setUserInputData((prevVal) => ({ ...prevVal, address: {...prevVal.address, city: text} }));
           }}
         />
         <TextInput
@@ -83,7 +88,7 @@ function CreateContact({
           placeholder="Zip Code"
           value={userInputData.address.zipcode}
           onChangeText={(text) => {
-            setUserInputData((prevVal) => ({ ...prevVal, address: text }));
+            setUserInputData((prevVal) => ({ ...prevVal, address: {...prevVal.address, zipcode: text} }));
           }}
         />
         <TextInput
@@ -111,7 +116,7 @@ function CreateContact({
             activeOpacity={0.8}
             onPress={() => {
                 console.log({userInputData});
-              if (Object.keys(userInputData).length < 6)
+              if (Object.keys(userInputData).length < 5)
                 return alert("All fields are mandatory!");
               else if (userData) updateContact(userInputData);
               else createContact(userInputData);

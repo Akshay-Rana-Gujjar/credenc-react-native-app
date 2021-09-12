@@ -1,5 +1,4 @@
 import axios from "axios";
-import { RESET_CREATE_CONTACT_STATE } from "../../constants/screen";
 import {
   CREATE_CONTACTS,
   DELETE_CONTACTS,
@@ -7,6 +6,7 @@ import {
   LOADING_CONTACT,
   LOADING_CONTACT_ERROR,
   LOADING_CONTACT_SUCCESS,
+  RESET_CREATE_CONTACT_STATE,
   SET_CONTACT_DETAIL,
   UPDATE_CONTACT,
 } from "../types";

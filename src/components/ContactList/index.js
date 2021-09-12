@@ -36,7 +36,7 @@ function ContactList({
     );
   }
 
-  console.log({contacts});
+  // console.log({contacts});
 
   return (
     <View>
